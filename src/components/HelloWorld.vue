@@ -15,20 +15,18 @@
     name: 'PlaidLink',
     data() {
       return {
-        // publicKey: process.env.VUE_APP_PLAID_PUBLIC_KEY,
-        publicKey: '3fd48ca30df117a9ed536aa76bfb50'
+        publicKey: process.env.VUE_APP_PLAID_PUBLIC_KEY
       }
     },
     components: {
       Plaid
     },
     created() {
-      console.log(this.publicKey)
     },
     methods: {
-        onSuccess (token) {
-            console.log(token)
-        }
+      onSuccess (token) {
+        console.log(token)
+      }
     }
   }
 </script>
