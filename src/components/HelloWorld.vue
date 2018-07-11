@@ -1,12 +1,17 @@
 <template>
-  <plaid 
-    env="sandbox"
-    :publicKey="publicKey"
-    clientName="Test App"
-    product="transactions"
-    v-bind="{ onSuccess }">
-    Open Plaid Link
-  </plaid>
+  <div>
+     <plaid
+        env="sandbox"
+        :publicKey="publicKey"
+        clientName="Test App"
+        product="transactions"
+        :webhook='"https://requestb.in"'
+        :onSuccess="onSuccess"
+        :onExit="onExit"
+        :onEvent="onEvent">
+        Open Plaid Link
+    </plaid>
+  </div>
 </template>
 
 <script>
@@ -24,8 +29,19 @@
     created() {
     },
     methods: {
-      onSuccess (token) {
-        console.log(token)
+      onSuccess (token, metadata) {
+        console.log('success!');
+        console.log(token);
+        console.log(metadata);
+      },
+      onExit(e ,metadata) {
+        // console.log('ere333r');
+        console.log(e, metadata);
+      },
+      onEvent(e, metadata) {
+        // console.log('erer566 ');
+        // console.log(e);
+        console.log(metadata);
       }
     }
   }

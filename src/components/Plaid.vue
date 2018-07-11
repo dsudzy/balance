@@ -45,17 +45,27 @@ export default {
             console.error('There was an issue loading the link-initialize.js script')
         },
         onScriptLoaded () {
+            console.log(this.product);
             window.linkHandler = window.Plaid.create({
                 clientName: this.clientName,
                 env: this.env,
+                // apiVersion: 'v2',
                 key: this.publicKey,
+                product: this.product,
+                // selectAccount: this.selectAccount,
+                // token: this.token,
+                webhook: this.webhook,
                 onExit: this.onExit,
                 onEvent: this.onEvent,
-                onSuccess: this.onSuccess,
-                product: this.product,
-                selectAccount: this.selectAccount,
-                token: this.token,
-                webhook: this.webhook
+                onSuccess: this.onSuccess
+
+                // clientName: 'Plaid Walkthrough Demo',
+                // env: 'sandbox',
+                // // Replace with your public_key from the Dashboard
+                // key: '[PUBLIC_KEY]',
+                // product: ['transactions'],
+                // // Optional, use webhooks to get transaction and error updates
+                // webhook: 'https://requestb.in',
             })
         },
         handleOnClick () {
