@@ -21,11 +21,7 @@ function dump(...$values)
 class Moneys {
     private $args;
 
-    private $credit = [
-        'BK OF AMER',
-        'DISCOVER E-PAYMENT',
-        'CHASE CREDIT',
-    ];
+    private $credit = [];
 
     private $reoccuring = [];
 
